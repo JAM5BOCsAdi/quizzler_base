@@ -15,7 +15,9 @@ class HomePage extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'QuizApp Home Page'),
+      home: const SafeArea(
+        child: MyHomePage(title: 'QuizApp Home Page'),
+      ),
     );
   }
 }
@@ -44,76 +46,74 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Text(widget.title),
         ),
       ),
-      body: SafeArea(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            const Expanded(
-              flex: 5,
-              child: Padding(
-                padding: EdgeInsets.all(10.0),
-                child: Center(
-                  child: Text(
-                    'This is where the question text will go.',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 25.0,
-                      color: Colors.black,
-                    ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          const Expanded(
+            flex: 5,
+            child: Padding(
+              padding: EdgeInsets.all(10.0),
+              child: Center(
+                child: Text(
+                  'This is where the question text will go.',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 25.0,
+                    color: Colors.black,
                   ),
                 ),
               ),
             ),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.all(15.0),
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.green,
-                  ),
-                  child: const Text(
-                    'True',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20.0,
-                    ),
-                  ),
-                  onPressed: () {
-                    //The user picked true.
-                    if (kDebugMode) {
-                      print("True");
-                    }
-                  },
+          ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.green,
                 ),
+                child: const Text(
+                  'True',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20.0,
+                  ),
+                ),
+                onPressed: () {
+                  //The user picked true.
+                  if (kDebugMode) {
+                    print("True");
+                  }
+                },
               ),
             ),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.all(15.0),
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.red,
-                  ),
-                  child: const Text(
-                    'False',
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Colors.white,
-                    ),
-                  ),
-                  onPressed: () {
-                    //The user picked false.
-                    if (kDebugMode) {
-                      print("False");
-                    }
-                  },
+          ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.red,
                 ),
+                child: const Text(
+                  'False',
+                  style: TextStyle(
+                    fontSize: 20.0,
+                    color: Colors.white,
+                  ),
+                ),
+                onPressed: () {
+                  //The user picked false.
+                  if (kDebugMode) {
+                    print("False");
+                  }
+                },
               ),
             ),
-            //TODO: Add a Row here as your score keeper
-          ],
-        ),
+          ),
+          //TODO: Add a Row here as your score keeper
+        ],
       ),
     );
   }
