@@ -112,7 +112,6 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
           ),
-          //TODO: Add a Row here as your score keeper
         ],
       ),
     );
